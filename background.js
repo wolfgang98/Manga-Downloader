@@ -7,13 +7,14 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 	chrome.tabs.sendMessage(tab.id, {}, function (res) {
 		if (!res) return
 		
+		const folder = Date.now()
 		let n = 0;
 		for (var i = 0; i < res.data.length; i++) {
 			n++
 			
 			chrome.downloads.download({
 				url: res.data[i],
-				filename: `manga/${Date.now()}/${pad(n, 2)}.png`
+				filename: `manga/${folder}/${pad(n, 2)}.png`
 			}, function(err) {
 				console.error(err)
 			})
