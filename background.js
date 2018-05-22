@@ -13,7 +13,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 			
 			chrome.downloads.download({
 				url: res.data[i],
-				filename: `manga/${Date.now}/${pad(n, 2)}.png`
+				filename: `manga/${Date.now()}/${pad(n, 2)}.png`
 			}, function(err) {
 				console.error(err)
 			})
